@@ -1,19 +1,20 @@
 def find_median(numbers):
-    if not numbers:
-        return None
+    # sort the list of numbers in ascending order
+    numbers.sort()
+    # find the length of the list
+    n = len(numbers)
 
-    sorted_numbers = sorted(numbers)
-    length = len(sorted_numbers)
+    # check if the list has an odd or even number of elements
+    if (n % 2 == 1):  # odd number of elements
+        # return the middle element as the median
+        return numbers[n // 2]
+    else:  # even number of elements
+        # calculate the average of the two middle elements as the median
+        middle1 = numbers[(n // 2) - 1]
+        middle2 = numbers[n // 2]
+        return (middle1 + middle2) / 2
 
-    if length % 2 == 1:
-        return sorted_numbers[length // 2]
-    else:
-        mid1 = sorted_numbers[length // 2 - 1]
-        mid2 = sorted_numbers[length // 2]
-        return (mid1 + mid2) / 2
 
-
-
-values = [13, 7, -3, 82, 4]
-result = find_median(values)
-print("Result is:", result)  # Output: Result is: 7
+some_nums = [13, 7, -3, 82, 4]
+result = find_median(some_nums)
+print("Median:", result)
